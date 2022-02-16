@@ -1,0 +1,1 @@
+This directory contains my personal solutions to coursework for How to Code: Simple Data.
