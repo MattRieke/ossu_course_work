@@ -25,6 +25,12 @@ def load_cows(filename):
     Returns:
     a dictionary of cow name (string), weight (int) pairs
     """
+    cow_dict = {}
+    with open(filename) as f:
+        read_data = f.read()
+    for line in read_data:
+        cow_dict[...] = ...
+
     # TODO: Your code here
     pass
 
