@@ -118,7 +118,7 @@ def brute_force_cow_transport(cows,limit=10):
     """
     set = []
     valid_partitions = {}
-    for n in len(cows):
+    for n in range(len(cows)):
         set.append(n)
     for partition in get_partitions(set):
         if check_part(partition, cows, limit):
@@ -169,5 +169,5 @@ def compare_cow_transport_algorithms():
 if __name__ == '__main__':
     print('The result of greedy load 1: ' + str(greedy_cow_transport(load_cows('ps1_cow_data.txt'))))
     print('The result of greedy load 2: ' + str(greedy_cow_transport(load_cows('ps1_cow_data_2.txt'))))
-    for partition in get_partitions([1,2,3,4]):
-        print(partition)
+    print('The result of brute force load 1: ' +str(brute_force_cow_transport(load_cows('ps1_cow_data.txt'))))
+    print('The result of brute force load 1: ' +str(brute_force_cow_transport(load_cows('ps1_cow_data_2.txt'))))
