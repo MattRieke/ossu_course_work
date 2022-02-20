@@ -83,6 +83,7 @@ def test_greedy_build_trip():
     """
     Unit test for greedy_build_trip()
     """
+    failure = False
     data_1=(
         ['Betsy'],
         {
