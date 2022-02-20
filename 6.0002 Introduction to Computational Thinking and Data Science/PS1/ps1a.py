@@ -79,6 +79,21 @@ def greedy_build_trip(cows, limit):
     A list of strings, with each string representing a cow name on the current trip
     A dictionary with the remaining cows not yet boarded
     """
+    trip = []
+    unloaded_cows = cows.copy()
+    remaining_cows = cows.copy()
+    trip_weight = 0
+    while trip_weight < 10:
+        heaviest_cow = max(remaining_cows, key=remaining_cows.get)
+        if heaviest_cow < 10 - trip_weight:
+            trip.append(heaviest_cow)
+            trip_weight += remaining_cows[heaviest_cow]
+            del remaining_cows[heaviest_cow]
+            del unloaded_cows[heaviest_cow]
+        else:
+            del remaining_cows[heaviest_cow]
+    return (trip,unloaded_cows)
+
 
 # Problem 3
 def brute_force_cow_transport(cows,limit=10):
