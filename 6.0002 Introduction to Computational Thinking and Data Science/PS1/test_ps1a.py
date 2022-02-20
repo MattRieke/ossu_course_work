@@ -45,4 +45,39 @@ def test_load_cows():
     if not failure:
         print("SUCCESS: load_cows()")
 
+def test_greedy_cow_transport():
+    """
+    Unit test for greedy_cow_transport()
+    """
+    failure = False
+    data_1 = [
+        ['Betsy'],
+        ['Henrietta'],
+        ['Herman', 'Maggie'],
+        ['Oreo','Moo Moo'],
+        ['Millie', 'Milkshake', 'Lola'],
+        ['Florence']
+    ]
+    data_2 = [
+        ['Lotus'],
+        ['Horns'],
+        ['Dottie', 'Milkshake'],
+        ['Betsy', 'Miss Moo-dy', 'Miss Bella'],
+        ['Rose']
+    ]
+    if data_1 != greedy_cow_transport(load_cows('ps1_cow_data.txt')):
+        print("FAILURE: greedy_cow_transport()")
+        print("Data Set 1 Failed")
+        failure = True
+    if data_2 != greedy_cow_transport(load_cows('ps1_cow_data_2.txt')):
+        if failure == True:
+            print("Data Set 2 Failed")
+        else:
+            print("FAILURE: greedy_cow_transport()")
+            print("Data Set 2 Failed")
+        failure = True
+    if not failure:
+        print("SUCCESS: greedy_cow_transport()")
+
 test_load_cows()
+test_greedy_cow_transport()
