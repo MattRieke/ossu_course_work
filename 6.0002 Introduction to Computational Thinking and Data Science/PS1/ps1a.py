@@ -26,13 +26,11 @@ def load_cows(filename):
     a dictionary of cow name (string), weight (int) pairs
     """
     cow_dict = {}
-    with open(filename) as f:
-        read_data = f.read()
-    for line in read_data:
-        cow_dict[...] = ...
-
-    # TODO: Your code here
-    pass
+    with open('ps1_cow_data.txt') as f:
+        for line in f:
+            comma_pos = line.find(',')
+            cow_dict[line[0:comma_pos]] = line[comma_pos + 1:-1]
+    return cow_dict
 
 # Problem 2
 def greedy_cow_transport(cows,limit=10):
