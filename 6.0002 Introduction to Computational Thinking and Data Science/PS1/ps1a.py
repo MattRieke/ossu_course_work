@@ -26,10 +26,11 @@ def load_cows(filename):
     a dictionary of cow name (string), weight (int) pairs
     """
     cow_dict = {}
-    with open('ps1_cow_data.txt') as f:
+    with open(filename) as f:
         for line in f:
+            line = line.rstrip()
             comma_pos = line.find(',')
-            cow_dict[line[0:comma_pos]] = line[comma_pos + 1:-1]
+            cow_dict[line[0:comma_pos]] = int(line[comma_pos + 1:])
     return cow_dict
 
 # Problem 2
