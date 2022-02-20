@@ -79,5 +79,99 @@ def test_greedy_cow_transport():
     if not failure:
         print("SUCCESS: greedy_cow_transport()")
 
+def test_greedy_build_trip():
+    """
+    Unit test for greedy_build_trip()
+    """
+    data_1=(
+        ['Betsy'],
+        {
+        'Maggie':3,
+        'Herman':7,
+        'Oreo':6,
+        'Moo Moo':3,
+        'Milkshake':2,
+        'Millie':5,
+        'Lola':2,
+        'Florence':2,
+        'Henrietta':9
+    }
+    )
+    data_2=(
+        ['Henrietta'],
+        {
+        'Maggie':3,
+        'Herman':7,
+        'Oreo':6,
+        'Moo Moo':3,
+        'Milkshake':2,
+        'Millie':5,
+        'Lola':2,
+        'Florence':2,
+    }
+    )
+    data_3=(
+        ['Herman', 'Maggie'],
+        {
+        'Oreo':6,
+        'Moo Moo':3,
+        'Milkshake':2,
+        'Millie':5,
+        'Lola':2,
+        'Florence':2,
+    }        
+    )
+    if data_1 != greedy_build_trip({
+        'Maggie':3,
+        'Herman':7,
+        'Betsy':9,
+        'Oreo':6,
+        'Moo Moo':3,
+        'Milkshake':2,
+        'Millie':5,
+        'Lola':2,
+        'Florence':2,
+        'Henrietta':9
+    },10):
+        print("FAILURE: greedy_build_trip()")
+        print("Data Set 1 Failed")
+        failure = True
+    if data_2 != greedy_build_trip({
+        'Maggie':3,
+        'Herman':7,
+        'Oreo':6,
+        'Moo Moo':3,
+        'Milkshake':2,
+        'Millie':5,
+        'Lola':2,
+        'Florence':2,
+        'Henrietta':9
+    },10):
+        if failure == True:
+            print("Data Set 2 Failed")
+        else:
+            print("FAILURE: greedy_cow_transport()")
+            print("Data Set 2 Failed")
+        failure = True
+    if data_3 != greedy_build_trip({
+        'Maggie':3,
+        'Herman':7,
+        'Oreo':6,
+        'Moo Moo':3,
+        'Milkshake':2,
+        'Millie':5,
+        'Lola':2,
+        'Florence':2
+    },10):
+        if failure == True:
+            print("Data Set 3 Failed")
+        else:
+            print("FAILURE: greedy_cow_transport()")
+            print("Data Set 3 Failed")
+        failure = True
+    if not failure:
+        print("SUCCESS: greedy_cow_transport()")
+
 test_load_cows()
 test_greedy_cow_transport()
+test_greedy_build_trip()
