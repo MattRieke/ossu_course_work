@@ -94,7 +94,6 @@ def greedy_build_trip(cows, limit):
             del remaining_cows[heaviest_cow]
     return (trip,unloaded_cows)
 
-
 # Problem 3
 def brute_force_cow_transport(cows,limit=10):
     """
@@ -117,8 +116,37 @@ def brute_force_cow_transport(cows,limit=10):
     transported on a particular trip and the overall list containing all the
     trips
     """
-    # TODO: Your code here
-    pass
+    set = []
+    valid_partitions = {}
+    for n in len(cows):
+        set.append(n)
+    for partition in get_partitions(set):
+        if check_part(partition, cows, limit):
+            valid_partitions[partition] = len(partition)
+    return min(valid_partitions, key=valid_partitions.get)
+
+def check_part(part, dict, limit):
+    """
+    Evaluates a partition to verify that each list within the partition abides with the
+    weight limit for the container.
+
+    Parameters:
+    part - a list of lists of integers that enumerate the possible partitions for the dict
+    dict - a dictionary with keys cow name (string) and values weight (integer)
+    limit - spaceship weight capcity (integer)
+
+    Returns: 
+    Boolean - True if all sublists of part have summed dict values <= limit
+            - Otherwise False
+    """
+    values_list = list(dict.get)
+    for trip in part:
+        trip_weight = 0
+        for cow in trip:
+            trip_weight += values_list[cow]
+        if trip_weight > limit:
+            return False
+    return True
         
 # Problem 4
 def compare_cow_transport_algorithms():
@@ -141,3 +169,5 @@ def compare_cow_transport_algorithms():
 if __name__ == '__main__':
     print('The result of greedy load 1: ' + str(greedy_cow_transport(load_cows('ps1_cow_data.txt'))))
     print('The result of greedy load 2: ' + str(greedy_cow_transport(load_cows('ps1_cow_data_2.txt'))))
+    for partition in get_partitions([1,2,3,4]):
+        print(partition)
