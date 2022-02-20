@@ -85,7 +85,7 @@ def greedy_build_trip(cows, limit):
     trip_weight = 0
     while len(remaining_cows) > 0:
         heaviest_cow = max(remaining_cows, key=remaining_cows.get)
-        if remaining_cows[heaviest_cow] < 10 - trip_weight:
+        if remaining_cows[heaviest_cow] <= 10 - trip_weight:
             trip.append(heaviest_cow)
             trip_weight += remaining_cows[heaviest_cow]
             del remaining_cows[heaviest_cow]
