@@ -56,8 +56,29 @@ def greedy_cow_transport(cows,limit=10):
     transported on a particular trip and the overall list containing all the
     trips
     """
-    # TODO: Your code here
-    pass
+    working_dict = cows.copy()
+    trips = []
+    while len(working_dict) > 0:
+        trip_result = greedy_build_trip(working_dict, limit)
+        trips.append(trip_result[0])
+        working_dict = trip_result[1]
+    return trips
+
+def greedy_build_trip(cows, limit):
+    """
+    Builds a single trip of cows that abides with the weight limit. Takes the heaviest
+    cow and loads that cow first. Then fills the trip with the next heaviest cow that still
+    fits.
+
+    Parameters:
+    cows - a dictionary of name (string), weight (int) pairs
+    limit - weight limit of the spaceship (int)
+
+    Returns:
+    A tuple with the following items:
+    A list of strings, with each string representing a cow name on the current trip
+    A dictionary with the remaining cows not yet boarded
+    """
 
 # Problem 3
 def brute_force_cow_transport(cows,limit=10):
