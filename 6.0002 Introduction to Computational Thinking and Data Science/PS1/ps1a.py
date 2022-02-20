@@ -139,7 +139,7 @@ def check_part(part, dict, limit):
     Boolean - True if all sublists of part have summed dict values <= limit
             - Otherwise False
     """
-    values_list = list(dict.get)
+    values_list = list(dict.values())
     for trip in part:
         trip_weight = 0
         for cow in trip:
