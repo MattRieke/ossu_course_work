@@ -150,7 +150,7 @@ def test_greedy_build_trip():
         if failure == True:
             print("Data Set 2 Failed")
         else:
-            print("FAILURE: greedy_cow_transport()")
+            print("FAILURE: greedy_build_trip()")
             print("Data Set 2 Failed")
         failure = True
     if data_3 != greedy_build_trip({
@@ -166,11 +166,11 @@ def test_greedy_build_trip():
         if failure == True:
             print("Data Set 3 Failed")
         else:
-            print("FAILURE: greedy_cow_transport()")
+            print("FAILURE: greedy_build_trip()")
             print("Data Set 3 Failed")
         failure = True
     if not failure:
-        print("SUCCESS: greedy_cow_transport()")
+        print("SUCCESS: greedy_build_trip()")
 
 test_load_cows()
 test_greedy_cow_transport()
