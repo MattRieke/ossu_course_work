@@ -173,6 +173,41 @@ def test_greedy_build_trip():
     if not failure:
         print("SUCCESS: greedy_build_trip()")
 
+
+def test_brute_force_cow_transport():
+    """
+    Unit test for brute_force_cow_transport()
+    """
+    failure = False
+    data_1 = [
+        ['Henrietta'],
+        ['Florence', 'Oreo', 'Milkshake'],
+        ['Maggie', 'Millie', 'Lola'],
+        ['Herman', 'Moo Moo'],
+        ['Betsy']
+    ]
+    data_2 = [
+        ['Dottie'],
+        ['Milkshake', 'Rose'],
+        ['Miss Moo-dy', 'Miss Bella', 'Betsy'],
+        ['Horns'],
+        ['Lotus']
+    ]
+    if data_1 != brute_force_cow_transport(load_cows('ps1_cow_data.txt')):
+        print("FAILURE: brute_force_cow_transport()")
+        print("Data Set 1 Failed")
+        failure = True
+    if data_2 != brute_force_cow_transport(load_cows('ps1_cow_data_2.txt')):
+        if failure == True:
+            print("Data Set 2 Failed")
+        else:
+            print("FAILURE: brute_force_cow_transport()")
+            print("Data Set 2 Failed")
+        failure = True
+    if not failure:
+        print("SUCCESS: brute_force_cow_transport()")
+
 test_load_cows()
 test_greedy_cow_transport()
 test_greedy_build_trip()
+test_brute_force_cow_transport()
