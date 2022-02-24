@@ -118,12 +118,25 @@ def brute_force_cow_transport(cows,limit=10):
     """
     set = []
     valid_partitions = []
+    cow_names = list(cows.keys())
+    shortest_partition_length = len(cows)
+    result = []
     for n in range(len(cows)):
         set.append(n)
     for partition in get_partitions(set):
         if check_part(partition, cows, limit):
             valid_partitions.append(partition)
-    return min(valid_partitions, key=valid_partitions.get)
+    for partition in valid_partitions:
+        if len(partition) <= shortest_partition_length:
+            shortest_partition_length = len(partition)
+            shortest_partition = partition
+    for trip in shortest_partition:
+        trip_names = []
+        for cow in trip:
+            name = cow_names[cow]
+            trip_names.append(name)
+        result.append(trip_names)
+    return result
 
 def check_part(part, dict, limit):
     """
