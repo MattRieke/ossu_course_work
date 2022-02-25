@@ -175,8 +175,14 @@ def compare_cow_transport_algorithms():
     Returns:
     Does not return anything.
     """
-    # TODO: Your code here
-    pass
+    start = time.time()
+    print('The number of trips with greedy is: ' + str(len(greedy_cow_transport(load_cows('ps1_cow_data.txt')))))
+    end = time.time()
+    print('Greedy took ' + str(end-start))
+    start = time.time()
+    print('The number of trips with brute force is: ' + str(len(brute_force_cow_transport(load_cows('ps1_cow_data.txt')))))
+    end = time.time()
+    print('Brute force took ' + str(end-start))
 
 
 if __name__ == '__main__':
@@ -184,3 +190,4 @@ if __name__ == '__main__':
     print('The result of greedy load 2: ' + str(greedy_cow_transport(load_cows('ps1_cow_data_2.txt'))))
     print('The result of brute force load 1: ' +str(brute_force_cow_transport(load_cows('ps1_cow_data.txt'))))
     print('The result of brute force load 1: ' +str(brute_force_cow_transport(load_cows('ps1_cow_data_2.txt'))))
+    compare_cow_transport_algorithms()
