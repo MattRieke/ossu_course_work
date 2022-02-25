@@ -9,3 +9,16 @@ algorithm runs faster? Why?
 
 3. Does the brute force algorithm return the optimal solution? Why/why not?
 3. The brute fore algorithm returns the optimal solution. By enumerating all possible solutions and then finding a solution with the minimum number of trips, it is guaranteed to find the optimal solution based on the criteria of minimum number of trips.
+
+Problem B.2: Writeup
+
+1. Explain why it would be difficult to use a brute force algorithm to solve this problem if there
+were 30 different egg weights. You do not need to implement a brute force algorithm in order to
+answer this.
+2. If you were to implement a greedy algorithm for finding the minimum number of eggs
+needed, what would the objective function be? What would the constraints be? What strategy
+would your greedy algorithm follow to pick which coins to take? You do not need to implement a
+greedy algorithm in order to answer this.
+3. Will a greedy algorithm always return the optimal solution to this problem? Explain why it is
+optimal or give an example of when it will not return the optimal solution. Again, you do not need
+to implement a greedy algorithm in order to answer this.
