@@ -190,5 +190,5 @@ if __name__ == '__main__':
     print('The result of greedy load 1: ' + str(greedy_cow_transport(load_cows('ps1_cow_data.txt'))))
     print('The result of greedy load 2: ' + str(greedy_cow_transport(load_cows('ps1_cow_data_2.txt'))))
     print('The result of brute force load 1: ' +str(brute_force_cow_transport(load_cows('ps1_cow_data.txt'))))
-    print('The result of brute force load 1: ' +str(brute_force_cow_transport(load_cows('ps1_cow_data_2.txt'))))
+    print('The result of brute force load 2: ' +str(brute_force_cow_transport(load_cows('ps1_cow_data_2.txt'))))
     compare_cow_transport_algorithms()
