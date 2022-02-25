@@ -1,8 +1,9 @@
 ###########################
 # 6.0002 Problem Set 1b: Space Change
-# Name:
-# Collaborators:
-# Time:
+# Name: Matt Rieke
+# Collaborators: None
+# Time Start: 2022-02-24 03:52 UTC
+# Time End:
 # Author: charz, cdenise
 
 #================================
