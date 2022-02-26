@@ -97,6 +97,7 @@ class Digraph(object):
             raise ValueError('add_node called with a pre-existing node')
         else:
             self.nodes.add(node)
+            self.edges[node] = []
 
     def add_edge(self, edge):
         """Adds an Edge or WeightedEdge instance to the Digraph. Raises a
@@ -107,9 +108,9 @@ class Digraph(object):
         elif not self.has_node(edge.get_destination()):
             raise ValueError('add_edge called without destination node added')
         else:
-            self.edges[edge.get_source()] = self.edges[edge.get_source()].append(edge.get_destination())
-            #draft
-
+            dests = self.edges[edge.get_source()]
+            dests.append(edge)
+            self.edges[edge.get_source()] = dests
 
 # ================================================================
 # Begin tests -- you do not need to modify anything below this line
@@ -166,5 +167,5 @@ class TestGraph(unittest.TestCase):
         self.assertEqual(str(self.g), expected)
 
 
-# if __name__ == "__main__":
-#     unittest.main()
+if __name__ == "__main__":
+    unittest.main()
