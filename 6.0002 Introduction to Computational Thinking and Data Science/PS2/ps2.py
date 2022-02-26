@@ -65,6 +65,17 @@ def load_map(map_filename):
 # Problem 2c: Testing load_map
 # Include the lines used to test load_map below, but comment them out
 
+# g = load_map('mit_map.txt')
+# print(g.has_node('32'))
+# print(g.has_node('36'))
+# print(g.has_node('68'))
+# print(g.has_node('76'))
+# print(g.has_node('14'))
+# print(g.has_node('50'))
+# print(g.has_node('99'))
+# print(g.get_edges_for_node('66'))
+# print(g.get_edges_for_node('32'))
+# print(str(g))
 
 #
 # Problem 3: Finding the Shorest Path using Optimized Search Method
