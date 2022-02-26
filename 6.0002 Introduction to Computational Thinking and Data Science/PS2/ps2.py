@@ -1,8 +1,9 @@
 # 6.0002 Problem Set 5
 # Graph optimization
-# Name:
-# Collaborators:
-# Time:
+# Name: Matt Rieke
+# Collaborators: None
+# Time Start: 2022-02-26 21:24 UTC
+# Time End: 
 
 #
 # Finding shortest paths through MIT buildings
