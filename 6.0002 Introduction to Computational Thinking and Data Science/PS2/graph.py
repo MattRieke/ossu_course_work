@@ -102,7 +102,13 @@ class Digraph(object):
         """Adds an Edge or WeightedEdge instance to the Digraph. Raises a
         ValueError if either of the nodes associated with the edge is not
         in the  graph."""
-        pass  # TODO
+        if not self.has_node(edge.get_source()):
+            raise ValueError('add_edge called without source node added')
+        elif not self.has_node(edge.get_destination()):
+            raise ValueError('add_edge called without destination node added')
+        else:
+            self.edges[edge.get_source()] = self.edges[edge.get_source()].append(edge.get_destination())
+            #draft
 
 
 # ================================================================
