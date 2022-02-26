@@ -16,11 +16,12 @@ from graph import Digraph, Node, WeightedEdge
 #
 # Problem 2a: Designing your graph
 #
-# What do the graph's nodes represent in this problem? What
-# do the graph's edges represent? Where are the distances
-# represented?
-#
-# Answer:
+# Q: What do the graph's nodes represent in this problem? 
+# A: The graph's nodes represent the various buildings on the MIT campus.
+# Q: What do the graph's edges represent? 
+# A: The graph's edges represent valid paths between buildings on the MIT campus.
+# Q: Where are the distances represented?
+# A: The distances are represented in the WeightedEdges objects.
 #
 
 
