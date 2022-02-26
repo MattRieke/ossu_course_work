@@ -93,7 +93,10 @@ class Digraph(object):
     def add_node(self, node):
         """Adds a Node object to the Digraph. Raises a ValueError if it is
         already in the graph."""
-        pass  # TODO
+        if self.has_node(node):
+            raise ValueError('add_node called with a pre-existing node')
+        else:
+            self.nodes.add(node)
 
     def add_edge(self, edge):
         """Adds an Edge or WeightedEdge instance to the Digraph. Raises a
