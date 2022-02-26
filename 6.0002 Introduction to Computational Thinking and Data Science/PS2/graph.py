@@ -1,8 +1,9 @@
 # 6.0002 Problem Set 5
 # Graph optimization
-# Name:
-# Collaborators:
-# Time:
+# Name: Matt Rieke
+# Collaborators: None
+# Time Start: 2022-02-26 18:26 UTC
+# Time Finish: 2022-02-26 21:23 UTC
 
 import unittest
 
