@@ -61,7 +61,7 @@ class WeightedEdge(Edge):
         self.outdoor_distance = outdoor_distance
 
     def get_total_distance(self):
-        pass  # TODO
+        return self.total_distance
 
     def get_outdoor_distance(self):
         pass  # TODO
