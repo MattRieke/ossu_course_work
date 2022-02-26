@@ -44,9 +44,23 @@ def load_map(map_filename):
     Returns:
         a Digraph representing the map
     """
-
-    # TODO
     print("Loading map from file...")
+    g = Digraph()
+    with open(map_filename) as f:
+        for line in f:
+            line = line.rstrip()
+            edge_data = line.split()
+            src = edge_data[0]
+            dest = edge_data[1]
+            total = edge_data[2]
+            outdoor = edge_data[3]
+            edge = WeightedEdge(src, dest, total, outdoor)
+            if not g.has_node(src):
+                g.add_node(src)
+            if not g.has_node(dest):
+                g.add_node(dest)
+            g.add_edge(edge)
+    return g
 
 # Problem 2c: Testing load_map
 # Include the lines used to test load_map below, but comment them out
