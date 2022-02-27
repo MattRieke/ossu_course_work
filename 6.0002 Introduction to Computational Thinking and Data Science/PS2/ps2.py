@@ -124,9 +124,32 @@ def get_best_path(digraph, start, end, path, max_dist_outdoors, best_dist,
         If there exists no path that satisfies max_total_dist and
         max_dist_outdoors constraints, then return None.
     """
-    # TODO
-    pass
-
+    # if start and end are not valid nodes:
+    #   raise an error
+    # elif start and end are the same node:
+    #   update the global variables appropriately
+    # else:
+    #   for all of the child nodes of start
+    #       construct a path including that node
+    #       recursively solve the rest of the path, from the child _
+    #       node to the end node
+    if not digraph.has_node(start):
+        raise ValueError('the start node is not a node in the graph')
+    elif not digraph.has_node(end):
+        raise ValueError('the end node is not a node in the graph')
+    elif start == end:
+        if path[1] < best_dist:
+            best_dist = path[1]
+            best_path = path[0]
+    else:
+        for edge in digraph.get_edges_for_node(start):
+            if edge.get_destination() not in path[0]:
+                if best_dist == None or path[1] < best_dist:
+                    next_outdoor_distance = path[2] + int(edge.get_outdoor_distance())
+                    if next_outdoor_distance <= max_dist_outdoors:
+                        next_path = [path[0] + [start], path[1] + int(edge.get_total_distance()), next_outdoor_distance]
+                        get_best_path(digraph, edge.get_destination(), end, next_path, max_dist_outdoors, best_dist, best_path)
+    return (best_path, best_dist)
 
 # Problem 3c: Implement directed_dfs
 def directed_dfs(digraph, start, end, max_total_dist, max_dist_outdoors):
@@ -157,8 +180,12 @@ def directed_dfs(digraph, start, end, max_total_dist, max_dist_outdoors):
         If there exists no path that satisfies max_total_dist and
         max_dist_outdoors constraints, then raises a ValueError.
     """
-    # TODO
-    pass
+    best_path = get_best_path(digraph, start, end, [[start], 0, 0], max_dist_outdoors, None, None)
+    if best_path[0] == None or best_path[1] > max_total_dist:
+        raise ValueError('no path exists that satisfies the constraints')
+    else:
+        return best_path[0]
+    #draft
 
 
 # ================================================================
