@@ -151,8 +151,10 @@ def get_best_path(digraph, start, end, path, max_dist_outdoors, best_dist,
                     next_outdoor_distance = path[2] + int(edge.get_outdoor_distance())
                     if next_outdoor_distance <= max_dist_outdoors:
                         next_path = [path[0] + [edge.get_destination()], path[1] + int(edge.get_total_distance()), next_outdoor_distance]
-                        get_best_path(digraph, edge.get_destination(), end, next_path, max_dist_outdoors, best_dist, best_path)
-    print (best_path, best_dist)
+                        result = get_best_path(digraph, edge.get_destination(), end, next_path, max_dist_outdoors, best_dist, best_path)
+                        if result != None:
+                            best_dist = result[1]
+                            best_path = result[0]
     return (best_path, best_dist)
 
 # Problem 3c: Implement directed_dfs
@@ -240,42 +242,42 @@ class Ps2Test(unittest.TestCase):
         print("DFS: ", dfsPath)
         self.assertEqual(expectedPath, dfsPath)
 
-    # def _test_impossible_path(self,
-    #                           start,
-    #                           end,
-    #                           total_dist=LARGE_DIST,
-    #                           outdoor_dist=LARGE_DIST):
-    #     self._print_path_description(start, end, total_dist, outdoor_dist)
-    #     with self.assertRaises(ValueError):
-    #         directed_dfs(self.graph, start, end, total_dist, outdoor_dist)
+    def _test_impossible_path(self,
+                              start,
+                              end,
+                              total_dist=LARGE_DIST,
+                              outdoor_dist=LARGE_DIST):
+        self._print_path_description(start, end, total_dist, outdoor_dist)
+        with self.assertRaises(ValueError):
+            directed_dfs(self.graph, start, end, total_dist, outdoor_dist)
 
     def test_path_one_step(self):
         self._test_path(expectedPath=['32', '56'])
 
-    # def test_path_no_outdoors(self):
-    #     self._test_path(
-    #         expectedPath=['32', '36', '26', '16', '56'], outdoor_dist=0)
+    def test_path_no_outdoors(self):
+        self._test_path(
+            expectedPath=['32', '36', '26', '16', '56'], outdoor_dist=0)
 
-    # def test_path_multi_step(self):
-    #     self._test_path(expectedPath=['2', '3', '7', '9'])
+    def test_path_multi_step(self):
+        self._test_path(expectedPath=['2', '3', '7', '9'])
 
-    # def test_path_multi_step_no_outdoors(self):
-    #     self._test_path(
-    #         expectedPath=['2', '4', '10', '13', '9'], outdoor_dist=0)
+    def test_path_multi_step_no_outdoors(self):
+        self._test_path(
+            expectedPath=['2', '4', '10', '13', '9'], outdoor_dist=0)
 
-    # def test_path_multi_step2(self):
-    #     self._test_path(expectedPath=['1', '4', '12', '32'])
+    def test_path_multi_step2(self):
+        self._test_path(expectedPath=['1', '4', '12', '32'])
 
-    # def test_path_multi_step_no_outdoors2(self):
-    #     self._test_path(
-    #         expectedPath=['1', '3', '10', '4', '12', '24', '34', '36', '32'],
-    #         outdoor_dist=0)
+    def test_path_multi_step_no_outdoors2(self):
+        self._test_path(
+            expectedPath=['1', '3', '10', '4', '12', '24', '34', '36', '32'],
+            outdoor_dist=0)
 
-    # def test_impossible_path1(self):
-    #     self._test_impossible_path('8', '50', outdoor_dist=0)
+    def test_impossible_path1(self):
+        self._test_impossible_path('8', '50', outdoor_dist=0)
 
-    # def test_impossible_path2(self):
-    #     self._test_impossible_path('10', '32', total_dist=100)
+    def test_impossible_path2(self):
+        self._test_impossible_path('10', '32', total_dist=100)
 
 
 if __name__ == "__main__":
