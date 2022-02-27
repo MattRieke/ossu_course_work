@@ -138,7 +138,10 @@ def get_best_path(digraph, start, end, path, max_dist_outdoors, best_dist,
     elif not digraph.has_node(end):
         raise ValueError('the end node is not a node in the graph')
     elif start == end:
-        if path[1] < best_dist:
+        if best_dist == None:
+            best_dist = path[1]
+            best_path = path[0]            
+        elif path[1] < best_dist:
             best_dist = path[1]
             best_path = path[0]
     else:
