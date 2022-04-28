@@ -82,7 +82,14 @@ class RectangularRoom(object):
         height: an integer > 0
         dirt_amount: an integer >= 0
         """
-        raise NotImplementedError
+        self.width = width
+        self.height = height
+        self.dirt_amount = dirt_amount
+        room = {}
+        for x in range(width):
+            for y in range(height):
+                room[(x, y)] = dirt_amount
+        self.room = room
     
     def clean_tile_at_position(self, pos, capacity):
         """
