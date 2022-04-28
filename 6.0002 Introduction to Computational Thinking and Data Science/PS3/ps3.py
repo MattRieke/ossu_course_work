@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 # Problem Set 3: Simulating robots
-# Name:
-# Collaborators (discussion):
-# Time:
+# Name: Matt Rieke
+# Collaborators (discussion): N/A
+# Time Start: 2022/04/28 04:15 UTC
+# Time End:
 
 import math
 import random
