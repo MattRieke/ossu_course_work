@@ -104,7 +104,13 @@ class RectangularRoom(object):
         Note: The amount of dirt on each tile should be NON-NEGATIVE.
               If the capacity exceeds the amount of dirt on the tile, mark it as 0.
         """
-        raise NotImplementedError
+        tile_x = int(pos.get_x())
+        tile_y = int(pos.get_y())
+        current_dirt = self.room[(tile_x, tile_y)]
+        if current_dirt < capacity:
+            self.room[(tile_x, tile_y)] = 0
+        else:
+            self.room[(tile_x, tile_y)] = self.room[(tile_x, tile_y)] - capacity
 
     def is_tile_cleaned(self, m, n):
         """
@@ -493,3 +499,8 @@ def show_plot_room_shape(title, x_label, y_label):
 
 #show_plot_compare_strategies('Time to clean 80% of a 20x20 room, for various numbers of robots','Number of robots','Time / steps')
 #show_plot_room_shape('Time to clean 80% of a 300-tile room for various room shapes','Aspect Ratio', 'Time / steps')
+
+# =============================================================
+# Begin tests
+# =============================================================
+
